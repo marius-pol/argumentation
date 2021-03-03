@@ -22,7 +22,8 @@ def solve_conflict(argumentation_world, conflict):
 
 
 def start(argumentation_world):
-    argumentation.plan = []
+    argumentationcan.plan = []
+    argumentationcan.computed_necessities ={}
 
     conflict = argumentation_world.current_conflict()
 
