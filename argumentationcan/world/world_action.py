@@ -1,4 +1,4 @@
-from world import read_expr
+from argumentationcan.world import read_expr
 
 
 class Action:

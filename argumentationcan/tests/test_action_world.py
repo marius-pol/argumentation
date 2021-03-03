@@ -1,10 +1,10 @@
 from unittest import TestCase
 
-import argumentation
-from argumentation import can_procedure
-from world import read_expr
-from world.action_world import ActionWorld
-from world.world_action import Action
+import argumentationcan
+from argumentationcan import procedure
+from argumentationcan.world import read_expr
+from argumentationcan.world.action_world import ActionWorld
+from argumentationcan.world.world_action import Action
 
 
 class TestArgumentationActionWorld(TestCase):
@@ -19,11 +19,11 @@ class TestArgumentationActionWorld(TestCase):
         world.wanted_necessities[read_expr('StateWarm')] = 1
         world.wanted_necessities[read_expr('StateLowConsumption')] = 2
 
-        can_procedure.start(world)
+        procedure.start(world)
 
-        plan_actions = [str(conflict.predicate) for conflict in argumentation.plan]
+        plan_actions = [str(conflict.predicate) for conflict in argumentationcan.plan]
 
-        assert len(argumentation.plan) == 3
+        assert len(argumentationcan.plan) == 3
         assert 'SwitchCoolerOn' == plan_actions[0]
         assert 'SwitchCoolerOff' == plan_actions[1]
         assert 'CloseBlinds' == plan_actions[2]

@@ -1,9 +1,9 @@
-from setuptools import setup
+from setuptools import setup, find_packages
 
 setup(
-    name='argumentation',
+    name='argumentationcan',
     version='1.0',
-    packages=['tests', 'world', 'argumentation'],
+    packages=find_packages(),
     url='',
     license='GPLv3',
     author='marius',

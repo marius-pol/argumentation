@@ -1,5 +1,6 @@
-from world import world_predicate, read_expr
-from world.abstract_world import AbstractWorld
+from argumentationcan.world import read_expr
+from argumentationcan.world import world_predicate
+from argumentationcan.world.abstract_world import AbstractWorld
 
 
 class ActionWorld(AbstractWorld):

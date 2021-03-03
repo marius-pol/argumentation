@@ -2,8 +2,8 @@ from abc import ABC, abstractmethod
 
 from nltk.sem.logic import NegatedExpression
 
-from argumentation.conflict import Conflict
-from world import world_predicate
+from argumentationcan.conflict import Conflict
+from argumentationcan.world import world_predicate
 
 
 class AbstractWorld(ABC):

@@ -1,4 +1,4 @@
-from argumentation.conflict import Conflict
+from argumentationcan.conflict import Conflict
 
 computed_necessities = {}
 plan = []

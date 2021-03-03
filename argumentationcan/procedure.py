@@ -1,7 +1,7 @@
-import argumentation
-from argumentation import Conflict
+import argumentationcan
+from argumentationcan import Conflict
 
-from world import world_predicate
+from argumentationcan.world import world_predicate
 
 
 def solve_conflict(argumentation_world, conflict):
@@ -40,9 +40,9 @@ def solution(argumentation_world, conflict):
     if conflict.necessity > 0:
         if argumentation_world.execute_action(conflict.predicate):
             print(('- solution {0} performed'.format(conflict.predicate)))
-            argumentation.set_computed_necessity(conflict.predicate, conflict.necessity)
+            argumentationcan.set_computed_necessity(conflict.predicate, conflict.necessity)
 
-            argumentation.plan.append(conflict)
+            argumentationcan.plan.append(conflict)
 
             return True
 
@@ -90,7 +90,7 @@ def revision(argumentation_world, conflict):
 def give_up(conflict):
     print(('give up - predicate {0} stored with necessity {1}'.format(conflict.predicate, -conflict.necessity)))
 
-    argumentation.set_computed_necessity(conflict.predicate, -conflict.necessity)
+    argumentationcan.set_computed_necessity(conflict.predicate, -conflict.necessity)
 
 
 def find_mutable_causes(possible_causes, necessity):
@@ -100,12 +100,12 @@ def find_mutable_causes(possible_causes, necessity):
         if predicate_mutable(possible_cause, necessity):
             mutable_causes.append(possible_cause)
 
-    return sorted(mutable_causes, key=lambda cause: abs(argumentation.get_computed_necessity(cause)))
+    return sorted(mutable_causes, key=lambda cause: abs(argumentationcan.get_computed_necessity(cause)))
 
 
 def predicate_mutable(predicate, necessity):
-    return necessity * argumentation.get_computed_necessity(predicate) <= 0 \
-           and abs(argumentation.get_computed_necessity(predicate)) < abs(necessity)
+    return necessity * argumentationcan.get_computed_necessity(predicate) <= 0 \
+           and abs(argumentationcan.get_computed_necessity(predicate)) < abs(necessity)
 
 
 def get_input(text):

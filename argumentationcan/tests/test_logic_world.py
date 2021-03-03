@@ -1,15 +1,15 @@
 from unittest import TestCase
 from unittest.mock import patch
 
-import argumentation
-from argumentation import can_procedure
-from world import read_expr
-from world.logic_world import LogicWorld
-from world.world_action import Action
+import argumentationcan
+from argumentationcan import procedure
+from argumentationcan.world import read_expr
+from argumentationcan.world.logic_world import LogicWorld
+from argumentationcan.world.world_action import Action
 
 
 class TestArgumentationLogicWorld(TestCase):
-    @patch('argumentation.can_procedure.get_input', return_value='-30')
+    @patch('argumentationcan.procedure.get_input', return_value='-30')
     def test_argumentation_logic_world(self, input):
         world = LogicWorld()
         create_actions(world)
@@ -34,11 +34,11 @@ class TestArgumentationLogicWorld(TestCase):
         world.wanted_necessities[read_expr('ToughWork')] = -10
         world.wanted_necessities[read_expr('NiceDoors')] = 20
 
-        can_procedure.start(world)
+        procedure.start(world)
 
-        plan_actions = [str(conflict.predicate) for conflict in argumentation.plan]
+        plan_actions = [str(conflict.predicate) for conflict in argumentationcan.plan]
 
-        assert len(argumentation.plan) == 7
+        assert len(argumentationcan.plan) == 7
         assert 'Repaint' == plan_actions[0]
         assert 'BurnOff' == plan_actions[1]
         assert 'WireBrush' == plan_actions[2]
